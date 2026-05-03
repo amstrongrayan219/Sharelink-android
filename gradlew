@@ -4,14 +4,14 @@ set -e
 APP_HOME=$(pwd)
 CLASSPATH=$APP_HOME/gradle/wrapper/gradle-wrapper.jar
 
-DEFAULT_JVM_OPTS='"-Xmx64m" "-Xms64m"'
-
 if [ -n "$JAVA_HOME" ] ; then
     JAVACMD="$JAVA_HOME/bin/java"
 else
     JAVACMD="java"
 fi
 
-exec "$JAVACMD" $DEFAULT_JVM_OPTS \
+exec "$JAVACMD" \
+  -Xmx64m \
+  -Xms64m \
   -classpath "$CLASSPATH" \
   org.gradle.wrapper.GradleWrapperMain "$@"
